@@ -1,5 +1,6 @@
 import HomePage from '../pages/home.vue';
 import LivePage from '../pages/live.vue';
+import ExplorePage from '../pages/explore.vue';
 import PanelPreferences from '../pages/panel-preferences.vue';
 
 const routes = [
@@ -11,6 +12,11 @@ const routes = [
         path: '/',
         id: 'live',
         component: LivePage,
+      },
+      {
+        path: '/explore/',
+        id: 'explore',
+        component: ExplorePage,
       },
     ],
   },

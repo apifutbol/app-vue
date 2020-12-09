@@ -24,10 +24,16 @@ export default {
     f7List,
     f7ListItem,
   },
+  mounted() {
+    const self = this;
+    self.preferences = null;
+  },
   methods: {
     setThemeMode() {
-      const preferences = f7.form.convertToData('#preferences');
-      f7.$('html').removeClass('theme-dark theme-light').addClass(`theme-${preferences.theme}`);
+      self.preferences = f7.form.convertToData('#preferences');
+      f7.$('html')
+        .removeClass('theme-dark theme-light')
+        .addClass(`theme-${self.preferences.theme}`);
     },
   },
 };
