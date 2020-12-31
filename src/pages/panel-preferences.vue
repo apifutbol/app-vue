@@ -14,8 +14,8 @@
       <!-- Switch Theme Color -->
       <f7-list-item title="Color" smart-select smart-select-init>
         <select name="color" @change="setThemeColor">
-          <option value="green">Green</option>
           <option value="blue">Blue</option>
+          <option value="green">Green</option>
           <option value="red">Red</option>
         </select>
       </f7-list-item>
