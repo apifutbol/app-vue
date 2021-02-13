@@ -21,6 +21,7 @@ export default {
 
     return {
       f7Params: {
+        id: 'com.apifutbol.appvue',
         theme,
         autoDarkTheme: true,
         iosTranslucentBars: false,

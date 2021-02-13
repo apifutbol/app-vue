@@ -1,0 +1,13 @@
+{
+  "appId": "com.apifutbol.appvue",
+  "appName": "@apifutbol/app-vue",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
