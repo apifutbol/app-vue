@@ -1,3 +1,5 @@
+import '@capacitor/core';
+
 import { createApp } from 'vue';
 
 import Framework7 from 'framework7/lite-bundle';
