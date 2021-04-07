@@ -1,5 +1,7 @@
 <template>
-  <f7-page :page-content="true" ptr :ptr-mousewheel="true" @ptr:refresh="ptr">
+  <f7-page name="explore" :page-content="true" ptr :ptr-mousewheel="true" @ptr:refresh="ptr">
+    <!-- Top Navbar -->
+    <f7-navbar title="Explore" />
     <!-- Page Content-->
     <f7-list v-if="loading" media-list>
       <f7-list-item
