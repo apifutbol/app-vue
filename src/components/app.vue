@@ -9,8 +9,8 @@
       </f7-toolbar>
       <!-- Views -->
       <f7-view id="view-home" :main="true" tab tab-active url="/"></f7-view>
-      <f7-view id="view-explore" :main="true" tab url="/explore/"></f7-view>
-      <f7-view id="view-live" :main="true" tab url="/live/"></f7-view>
+      <f7-view id="view-explore" tab url="/explore/"></f7-view>
+      <f7-view id="view-live" tab url="/live/"></f7-view>
     </f7-views>
   </f7-app>
 </template>
