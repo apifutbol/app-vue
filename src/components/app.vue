@@ -66,7 +66,7 @@ export default {
       const checked = e.target.checked;
 
       await Storage.set({
-        key: 'dark',
+        key: 'darkMode',
         value: checked,
       });
 
@@ -75,7 +75,7 @@ export default {
 
     onMounted(() => {
       f7ready(async () => {
-        const { value } = await Storage.get({ key: 'dark' });
+        const { value } = await Storage.get({ key: 'darkMode' });
 
         darkMode.value = JSON.parse(value);
       });
