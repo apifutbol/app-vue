@@ -75,9 +75,10 @@ export default {
 
     onMounted(() => {
       f7ready(async () => {
-        const { value } = await Storage.get({ key: 'darkMode' });
-
-        darkMode.value = JSON.parse(value);
+        const { value: mode } = await Storage.get({ key: 'darkMode' });
+        if (mode) {
+          darkMode.value = JSON.parse(mode);
+        }
       });
     });
 
