@@ -1,5 +1,5 @@
 <template>
-  <f7-page name="explore" :page-content="true" ptr :ptr-mousewheel="true" @ptr:refresh="ptr">
+  <f7-page name="explore" :page-content="true" ptr :ptr-mousewheel="true" @ptr:refresh="refresh">
     <!-- Top Navbar -->
     <f7-navbar :sliding="false">
       <f7-nav-left>
@@ -12,6 +12,14 @@
       </f7-nav-left>
       <f7-nav-title sliding>Explore</f7-nav-title>
     </f7-navbar>
+    <!-- Fab Buttons -->
+    <f7-fab position="right-bottom">
+      <f7-icon ios="f7:plus" aurora="f7:plus" md="material:add"></f7-icon>
+      <f7-icon ios="f7:xmark" aurora="f7:xmark" md="material:close"></f7-icon>
+      <f7-fab-buttons position="top">
+        <f7-fab-button label="Refresh" :fab-close="true" @click="refresh">1</f7-fab-button>
+      </f7-fab-buttons>
+    </f7-fab>
     <!-- Page Content-->
     <f7-list v-if="loading" media-list>
       <f7-list-item
@@ -75,7 +83,7 @@ export default {
   setup() {
     const loading = ref(false);
 
-    function ptr(done) {
+    function refresh(done) {
       loading.value = true;
 
       setTimeout(() => {
@@ -87,7 +95,7 @@ export default {
 
     return {
       loading,
-      ptr,
+      refresh,
     };
   },
 };
