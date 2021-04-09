@@ -36,10 +36,3 @@ node_modules/
 # Misc
 .DS_Store
 Thumbs.db
-
-# Package
-package-lock.json
-yarn.lock
-
-# Capacitor
-ios
