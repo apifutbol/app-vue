@@ -3,9 +3,24 @@
     <f7-views tabs class="safe-areas" color-theme="green" :theme-dark="darkMode">
       <!-- Bottom Toolbar -->
       <f7-toolbar position="bottom" tabbar>
-        <f7-link tab-link="#view-home" icon-ios="f7:sportscourt" icon-md="f7:sportscourt" />
-        <f7-link tab-link="#view-explore" icon-ios="f7:search" icon-md="f7:search" />
-        <f7-link tab-link="#view-live" icon-ios="f7:app_badge" icon-md="f7:app_badge" />
+        <f7-link
+          tab-link="#view-home"
+          icon-ios="f7:sportscourt"
+          icon-aurora="f7:sportscourt"
+          icon-md="f7:sportscourt"
+        />
+        <f7-link
+          tab-link="#view-explore"
+          icon-ios="f7:search"
+          icon-aurora="f7:search"
+          icon-md="f7:search"
+        />
+        <f7-link
+          tab-link="#view-live"
+          icon-ios="f7:app_badge"
+          icon-aurora="f7:app_badge"
+          icon-md="f7:app_badge"
+        />
       </f7-toolbar>
       <!-- Views -->
       <f7-view id="view-home" :main="true" tab tab-active url="/"></f7-view>
