@@ -2,6 +2,6 @@
   "appId": "com.apifutbol.appvue",
   "appName": "@apifutbol/app-vue",
   "bundledWebRuntime": false,
-  "npmClient": "yarn",
+  "npmClient": "npm",
   "webDir": "dist"
 }
