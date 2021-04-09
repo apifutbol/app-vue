@@ -6,11 +6,6 @@
         <f7-link tab-link="#view-home" icon-ios="f7:sportscourt" icon-md="f7:sportscourt" />
         <f7-link tab-link="#view-explore" icon-ios="f7:search" icon-md="f7:search" />
         <f7-link tab-link="#view-live" icon-ios="f7:app_badge" icon-md="f7:app_badge" />
-        <f7-link
-          popup-open="#preferences"
-          icon-ios="f7:square_line_vertical_square"
-          icon-md="f7:square_line_vertical_square"
-        />
       </f7-toolbar>
       <!-- Views -->
       <f7-view id="view-home" :main="true" tab tab-active url="/"></f7-view>
@@ -18,15 +13,11 @@
       <f7-view id="view-live" tab url="/live/"></f7-view>
     </f7-views>
 
-    <!-- Popup -->
-    <f7-popup id="preferences" color-theme="green" :theme-dark="darkMode">
+    <!-- Preferences Panel -->
+    <f7-panel left cover resizable color-theme="green" :theme-dark="darkMode">
       <f7-view>
         <f7-page>
-          <f7-navbar title="Preferences">
-            <f7-nav-right>
-              <f7-link popup-close>Close</f7-link>
-            </f7-nav-right>
-          </f7-navbar>
+          <f7-navbar title="Preferences" />
           <f7-block-title>Theme</f7-block-title>
           <f7-list>
             <f7-list-item
@@ -39,7 +30,7 @@
           </f7-list>
         </f7-page>
       </f7-view>
-    </f7-popup>
+    </f7-panel>
   </f7-app>
 </template>
 

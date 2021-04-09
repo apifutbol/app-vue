@@ -1,7 +1,17 @@
 <template>
   <f7-page name="explore" :page-content="true" ptr :ptr-mousewheel="true" @ptr:refresh="ptr">
     <!-- Top Navbar -->
-    <f7-navbar title="Explore" />
+    <f7-navbar :sliding="false">
+      <f7-nav-left>
+        <f7-link
+          panel-open="left"
+          icon-ios="f7:menu"
+          icon-aurora="f7:menu"
+          icon-md="material:menu"
+        ></f7-link>
+      </f7-nav-left>
+      <f7-nav-title sliding>Explore</f7-nav-title>
+    </f7-navbar>
     <!-- Page Content-->
     <f7-list v-if="loading" media-list>
       <f7-list-item
