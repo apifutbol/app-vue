@@ -1,6 +1,6 @@
 <template>
   <f7-app v-bind="f7params">
-    <f7-views tabs class="safe-areas" :theme-dark="darkMode">
+    <f7-views tabs class="safe-areas" color-theme="green" :theme-dark="darkMode">
       <!-- Bottom Toolbar -->
       <f7-toolbar position="bottom" tabbar>
         <f7-link tab-link="#view-home" icon-ios="f7:sportscourt" icon-md="f7:sportscourt" />
@@ -19,7 +19,7 @@
     </f7-views>
 
     <!-- Popup -->
-    <f7-popup id="preferences" :theme-dark="darkMode">
+    <f7-popup id="preferences" color-theme="green" :theme-dark="darkMode">
       <f7-view>
         <f7-page>
           <f7-navbar title="Preferences">
