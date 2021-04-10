@@ -1,6 +1,6 @@
 <template>
-  <f7-app v-bind="f7params">
-    <f7-views tabs class="safe-areas" color-theme="green" :theme-dark="darkMode">
+  <f7-app v-bind="params">
+    <f7-views tabs class="safe-areas" :color-theme="colorMode" :theme-dark="themeMode">
       <!-- Bottom Toolbar -->
       <f7-toolbar position="bottom" tabbar>
         <f7-link
@@ -23,13 +23,13 @@
         />
       </f7-toolbar>
       <!-- Views -->
-      <f7-view id="view-home" :main="true" tab tab-active url="/"></f7-view>
-      <f7-view id="view-explore" tab url="/explore/"></f7-view>
-      <f7-view id="view-live" tab url="/live/"></f7-view>
+      <f7-view id="view-home" :main="true" name="Home" tab tab-active url="/"></f7-view>
+      <f7-view id="view-explore" name="Explore" tab url="/explore/"></f7-view>
+      <f7-view id="view-live" name="Live" tab url="/live/"></f7-view>
     </f7-views>
 
     <!-- Preferences Panel -->
-    <f7-panel left cover resizable color-theme="green" :theme-dark="darkMode">
+    <f7-panel left cover resizable :color-theme="colorMode" :theme-dark="themeMode">
       <f7-view>
         <f7-page>
           <f7-navbar title="Preferences" />
@@ -38,9 +38,9 @@
             <f7-list-item
               checkbox
               title="Dark Mode"
-              name="darkmode-checkbox"
-              :checked="darkMode === true"
-              @change="setTheme"
+              name="theme-mode-checkbox"
+              :checked="themeMode === true"
+              @change="setMode"
             />
           </f7-list>
         </f7-page>
@@ -53,14 +53,16 @@
 import { ref, onMounted } from 'vue';
 import { f7ready } from 'framework7-vue';
 import { Storage } from '@capacitor/storage';
+import { getThemeMode, getColorMode } from '../utils/theme';
 
 import routes from '../js/routes';
 
 export default {
   setup() {
-    const darkMode = ref(true);
+    const themeMode = ref(true);
+    const colorMode = ref('green');
 
-    const f7params = {
+    const params = {
       id: 'com.apifutbol.appvue',
       theme: 'auto',
       iosTranslucentBars: false,
@@ -68,30 +70,33 @@ export default {
       routes,
     };
 
-    const setTheme = async (e) => {
+    const setMode = async (e) => {
       const checked = e.target.checked;
 
       await Storage.set({
-        key: 'darkMode',
+        key: 'themeMode',
         value: checked,
       });
 
-      darkMode.value = checked;
+      themeMode.value = getThemeMode(checked);
+      colorMode.value = getColorMode(checked);
     };
 
     onMounted(() => {
       f7ready(async () => {
-        const { value: mode } = await Storage.get({ key: 'darkMode' });
+        const { value: mode } = await Storage.get({ key: 'themeMode' });
         if (mode) {
-          darkMode.value = JSON.parse(mode);
+          themeMode.value = getThemeMode(mode);
+          colorMode.value = getColorMode(mode);
         }
       });
     });
 
     return {
-      f7params,
-      darkMode,
-      setTheme,
+      params,
+      themeMode,
+      colorMode,
+      setMode,
     };
   },
 };
